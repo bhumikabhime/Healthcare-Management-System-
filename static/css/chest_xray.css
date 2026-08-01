@@ -1,0 +1,211 @@
+/* -----------------------------
+   Chest X-Ray Hero Section
+------------------------------*/
+
+.hero-section{
+
+    height:70vh;
+
+    background:linear-gradient(
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.55)
+    ),
+    url("../images/chest_xray/hero.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
+    border-radius:20px;
+
+    margin-bottom:40px;
+
+}
+
+.hero-content{
+
+    max-width:750px;
+
+    padding:20px;
+
+}
+
+.hero-content h1{
+
+    font-size:3rem;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+.hero-content p{
+
+    font-size:1.2rem;
+
+    margin-bottom:30px;
+
+    line-height:1.8;
+
+}
+
+.hero-content .btn{
+
+    padding:12px 35px;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+}
+/* -----------------------------
+   Overview Section
+------------------------------*/
+
+#overview .card{
+
+    border-radius:20px;
+
+}
+
+#overview h2{
+
+    font-weight:700;
+
+}
+
+#overview h4{
+
+    font-weight:600;
+
+    color:#0d6efd;
+
+}
+
+#overview p{
+
+    line-height:1.8;
+
+}
+
+#overview li{
+
+    margin-bottom:10px;
+
+}
+
+#overview .border{
+
+    transition:.3s;
+
+}
+
+#overview .border:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+}
+/* -----------------------------
+   Anatomy Section
+------------------------------*/
+
+#anatomy .card{
+    border-radius:20px;
+}
+
+#anatomy h2{
+    font-weight:700;
+}
+
+#anatomy p{
+    line-height:1.8;
+}
+
+#anatomy img{
+    max-height:500px;
+    transition:.3s;
+}
+
+#anatomy img:hover{
+    transform:scale(1.03);
+}
+
+#anatomy .list-group-item{
+    border:none;
+    padding:15px 0;
+}
+/* -----------------------------
+   Gallery
+------------------------------*/
+
+#gallery img{
+
+    height:350px;
+
+    object-fit:cover;
+
+    transition:.3s;
+
+}
+
+#gallery img:hover{
+
+    transform:scale(1.03);
+
+}
+
+#gallery .card{
+
+    border-radius:20px;
+
+}
+
+/* -----------------------------
+   Comparison
+------------------------------*/
+
+#comparison .card{
+
+    border-radius:20px;
+
+}
+
+#comparison table{
+
+    vertical-align:middle;
+
+}
+/* -----------------------------
+   Symptoms
+------------------------------*/
+
+.symptom-card,
+.risk-card{
+    border:none;
+    border-radius:20px;
+    transition:0.3s;
+}
+
+.symptom-card:hover,
+.risk-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.15);
+}
+
+.symptom-card .card-body,
+.risk-card .card-body{
+    padding:30px;
+}

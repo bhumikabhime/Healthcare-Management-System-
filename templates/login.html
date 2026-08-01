@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Doctor Assistant | Login</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- LEFT PANEL -->
+
+    <div class="left-panel">
+
+        <div class="overlay"></div>
+
+        <div class="left-content">
+
+            <div class="logo">
+
+                <div class="capsule-logo">
+
+                    <span class="blue"></span>
+
+                    <span class="white"></span>
+
+                </div>
+
+                <h2>AI Doctor Assistant</h2>
+
+            </div>
+
+            <h1>
+
+                Smarter Healthcare <br>
+
+                Powered by AI
+
+            </h1>
+
+            <p>
+
+                Empowering doctors with intelligent disease prediction,
+                AI-assisted diagnosis and modern healthcare technology.
+
+            </p>
+
+            <div class="feature-box">
+
+                <div>
+
+                    <i class="fa-solid fa-brain"></i>
+
+                    AI Prediction
+
+                </div>
+
+                <div>
+
+                    <i class="fa-solid fa-heart-pulse"></i>
+
+                    Fast Diagnosis
+
+                </div>
+
+                <div>
+
+                    <i class="fa-solid fa-shield-heart"></i>
+
+                    Secure Records
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+
+    <div class="right-panel">
+
+        <div class="login-card">
+
+            <div class="card-header">
+
+                <h2>
+
+                    Welcome  
+
+                </h2>
+
+                <p>
+
+                    Sign in to continue
+
+                </p>
+
+            </div>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+
+            {% for category, message in messages %}
+
+            <div class="alert alert-{{ category }}">
+
+                {{ message }}
+
+            </div>
+
+            {% endfor %}
+
+            {% endif %}
+            {% endwith %}
+
+            <form method="POST">
+                <!-- Email -->
+
+<div class="input-group-custom">
+
+    <label>Email Address</label>
+
+    <div class="input-box">
+
+        <i class="fa-solid fa-envelope"></i>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            required>
+
+    </div>
+
+</div>
+
+<!-- Password -->
+
+<div class="input-group-custom">
+
+    <label>Password</label>
+
+    <div class="input-box">
+
+        <i class="fa-solid fa-lock"></i>
+
+        <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required>
+
+        <i class="fa-solid fa-eye eye-toggle"
+            id="togglePassword"></i>
+
+    </div>
+
+</div>
+
+<!-- Options -->
+
+<div class="login-options">
+
+    <label class="remember">
+
+        <input type="checkbox">
+
+        Remember Me
+
+    </label>
+
+    <a href="#" class="forgot-password">
+
+        Forgot Password?
+
+    </a>
+
+</div>
+
+<!-- Login Button -->
+
+<button
+    type="submit"
+    class="login-btn">
+
+    <span>
+
+        Sign In
+
+    </span>
+
+    <i class="fa-solid fa-arrow-right"></i>
+
+</button>
+
+<!-- Divider -->
+
+<div class="divider">
+
+    <span>OR</span>
+
+</div>
+
+<!-- Register -->
+
+<div class="register-link">
+
+    Don't have an account?
+
+    <a href="/register">
+
+        Create Account
+
+    </a>
+
+</div>
+
+</form>
+
+<!-- Footer -->
+
+<div class="card-footer">
+
+    <p>
+
+        © 2026 AI Doctor Assistant
+
+    </p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

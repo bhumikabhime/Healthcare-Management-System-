@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}AI Doctor Assistant{% endblock %}</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Common Dashboard CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+    <!-- Page CSS -->
+    {% block extra_css %}{% endblock %}
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="logo">
+
+                <h2>🩺 AI Doctor</h2>
+
+            </div>
+
+            <ul class="menu">
+
+                <li>
+                    <a href="{{ url_for('dashboard') }}">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('chest_xray') }}">
+                        <i class="fa-solid fa-lungs"></i>
+                        Chest X-Ray
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('diabetes') }}">
+                        <i class="fa-solid fa-droplet"></i>
+                        Diabetes
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('cancer') }}">
+                        <i class="fa-solid fa-ribbon"></i>
+                        Cancer
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('disease') }}">
+                        <i class="fa-solid fa-stethoscope"></i>
+                        Disease Prediction
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        History
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('profile') }}">
+                       <i class="fa-solid fa-user"></i>
+                        Profile
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-gear"></i>
+                        Settings
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <a href="{{ url_for('logout') }}" class="logout-btn">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </a>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="content">
+
+        <!-- Topbar -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h2>{% block page_heading %}{% endblock %}</h2>
+
+            </div>
+
+            <div class="profile">
+
+               <img src="{{ url_for('static', filename='images/' + session.get('profile_image', 'default-user.png')) }}"
+                     alt="Profile">
+
+                <div>
+
+                    <strong>
+
+                        Dr. {{ session['doctor_name'] }}
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- Page Content -->
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+</div>
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Common JS -->
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Chart Data Labels Plugin -->
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+<!-- Page JS -->
+{% block extra_js %}{% endblock %}
+
+</body>
+
+</html>

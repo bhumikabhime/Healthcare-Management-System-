@@ -1,0 +1,385 @@
+{% extends "base.html" %}
+
+{% block title %}Cancer Prediction{% endblock %}
+
+{% block page_heading %}Cancer Prediction{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-danger text-white">
+
+    <h3>
+        <i class="fa-solid fa-ribbon"></i>
+        Breast Cancer Prediction
+    </h3>
+
+    <small>
+        Predict breast cancer using Machine Learning
+    </small>
+
+</div>
+
+        <div class="card-body">
+
+            <form method="POST">
+
+    <!-- Patient Information -->
+
+    <h4 class="mb-3 text-danger">
+        <i class="fa-solid fa-user"></i>
+        Patient Information
+    </h4>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Patient Name</label>
+
+            <input
+                type="text"
+                name="patient_name"
+                class="form-control"
+                required>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Age</label>
+
+            <input
+                type="number"
+                name="patient_age"
+                class="form-control"
+                min="1"
+                max="120"
+                required>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label class="form-label">Gender</label>
+
+            <select
+                name="patient_gender"
+                class="form-select"
+                required>
+
+                <option value="">Select</option>
+                <option>Male</option>
+                <option>Female</option>
+
+            </select>
+        </div>
+
+    </div>
+
+    <hr>
+
+<h4 class="text-danger mb-3">
+    <i class="fa-solid fa-microscope"></i>
+    Medical Parameters
+</h4>
+
+<div class="row">
+
+<div class="col-md-4 mb-3">
+<label class="fw-semibold">
+    Radius Mean
+</label>
+<input type="number" step="any" class="form-control shadow-sm" name="radius_mean" required>
+</div>
+
+<div class="col-md-4 mb-3">
+<label class="fw-semibold">
+    Texture Mean
+</label>
+<input type="number" step="any" class="form-control shadow-sm" name="texture_mean" required>
+</div>
+
+<div class="col-md-4 mb-3">
+<label class="fw-semibold">
+    Perimeter Mean
+</label>
+<input type="number" step="any" class="form-control shadow-sm" name="perimeter_mean" required>
+</div>
+
+<div class="col-md-4 mb-3">
+<label class="fw-semibold">
+    Area Mean
+</label>
+<input type="number" step="any" class="form-control shadow-sm" name="area_mean" required>
+</div>
+
+<div class="col-md-4 mb-3">
+<label class="fw-semibold">
+    Smoothness Mean
+</label>
+<input type="number" step="any" class="form-control shadow-sm" name="smoothness_mean" required>
+</div>
+
+<div class="col-md-4 mb-3">
+<label class="fw-semibold">
+    Compactness Mean
+</label>
+<input type="number" step="any" class="form-control shadow-sm" name="compactness_mean" required>
+</div>
+
+<div class="col-md-4 mb-3">
+<label class="fw-semibold">
+    Concavity Mean
+</label>
+<input type="number" step="any" class="form-control shadow-sm" name="concavity_mean" required>
+</div>
+
+<div class="col-md-4 mb-3">
+<label class="fw-semibold">
+    Concave Points Mean
+</label>
+<input type="number" step="any" class="form-control shadow-sm" name="concave_points_mean" required>
+</div>
+
+<div class="col-md-4 mb-3">
+<label class="fw-semibold">
+    Symmetry Mean
+</label>
+<input type="number" step="any" class="form-control shadow-sm" name="symmetry_mean" required>
+</div>
+
+<div class="col-md-4 mb-3">
+<label class="fw-semibold">
+    Fractal Dimension Mean
+</label>
+<input type="number" step="any" class="form-control shadow-sm" name="fractal_dimension_mean" required>
+</div>
+
+</div>
+
+<hr>
+
+<h4 class="text-danger mt-4">
+    <i class="fa-solid fa-flask"></i>
+    Standard Error (SE) Measurements
+</h4>
+
+<div class="row">
+
+    <div class="col-md-4 mb-3">
+        <label class="fw-semibold">Radius SE</label>
+        <input type="number" step="any" class="form-control shadow-sm" name="radius_se" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label class="fw-semibold">Texture SE</label>
+        <input type="number" step="any" class="form-control shadow-sm" name="texture_se" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label class="fw-semibold">Perimeter SE</label>
+        <input type="number" step="any" class="form-control shadow-sm" name="perimeter_se" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label class="fw-semibold">Area SE</label>
+        <input type="number" step="any" class="form-control shadow-sm" name="area_se" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label class="fw-semibold">Smoothness SE</label>
+        <input type="number" step="any" class="form-control shadow-sm" name="smoothness_se" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label class="fw-semibold">Compactness SE</label>
+        <input type="number" step="any" class="form-control shadow-sm" name="compactness_se" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label class="fw-semibold">Concavity SE</label>
+        <input type="number" step="any" class="form-control shadow-sm" name="concavity_se" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label class="fw-semibold">Concave Points SE</label>
+        <input type="number" step="any" class="form-control shadow-sm" name="concave_points_se" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label class="fw-semibold">Symmetry SE</label>
+        <input type="number" step="any" class="form-control shadow-sm" name="symmetry_se" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label class="fw-semibold">Fractal Dimension SE</label>
+        <input type="number" step="any" class="form-control shadow-sm " name="fractal_dimension_se" required>
+    </div>
+
+</div>
+<h4 class="text-danger mt-4">
+    <i class="fa-solid fa-chart-line"></i>
+    Worst Measurements
+</h4>
+
+<div class="row">
+
+    <div class="col-md-4 mb-3">
+        <label>Radius Worst</label>
+        <input type="number" step="any" class="form-control" name="radius_worst" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label>Texture Worst</label>
+        <input type="number" step="any" class="form-control" name="texture_worst" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label>Perimeter Worst</label>
+        <input type="number" step="any" class="form-control" name="perimeter_worst" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label>Area Worst</label>
+        <input type="number" step="any" class="form-control" name="area_worst" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label>Smoothness Worst</label>
+        <input type="number" step="any" class="form-control" name="smoothness_worst" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label>Compactness Worst</label>
+        <input type="number" step="any" class="form-control" name="compactness_worst" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label>Concavity Worst</label>
+        <input type="number" step="any" class="form-control" name="concavity_worst" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label>Concave Points Worst</label>
+        <input type="number" step="any" class="form-control" name="concave_points_worst" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label>Symmetry Worst</label>
+        <input type="number" step="any" class="form-control" name="symmetry_worst" required>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <label>Fractal Dimension Worst</label>
+        <input type="number" step="any" class="form-control" name="fractal_dimension_worst" required>
+    </div>
+
+</div>
+<hr>
+
+<button
+    type="submit"
+    class="btn btn-danger btn-lg">
+
+    Predict Cancer
+
+</button>
+{% if prediction %}
+
+<div class="card shadow mt-4">
+
+    <div class="card-header bg-danger text-white">
+
+        <h4>
+            <i class="fa-solid fa-square-poll-vertical"></i>
+            Prediction Result
+        </h4>
+
+    </div>
+
+    <div class="card-body text-center">
+
+        {% if prediction == "Malignant" %}
+
+            <h2 class="text-danger">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                {{ prediction }}
+            </h2>
+
+        {% else %}
+
+            <h2 class="text-success">
+                <i class="fa-solid fa-circle-check"></i>
+                {{ prediction }}
+            </h2>
+
+        {% endif %}
+
+        <br>
+
+        <h5>Confidence</h5>
+
+        <div class="progress">
+
+            <div
+                class="progress-bar bg-danger"
+                data-confidence="{{ confidence | default(0) }}"
+                role="progressbar">
+
+                {{ confidence }}%
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        {% if prediction == "Malignant" %}
+
+        <div class="alert alert-danger">
+
+            <strong>Recommendation</strong>
+
+            <br>
+
+            Please consult an oncologist immediately for
+            further medical evaluation and diagnosis.
+
+        </div>
+
+        {% else %}
+
+        <div class="alert alert-success">
+
+            <strong>Recommendation</strong>
+
+            <br>
+
+            The AI model predicts a benign tumor.
+            Continue regular breast screening and
+            consult your doctor if symptoms appear.
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endif %}
+
+</form>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+document.querySelectorAll('.progress-bar[data-confidence]').forEach(el => {
+    const value = parseFloat(el.dataset.confidence) || 0;
+    el.style.width = value + "%";
+});
+</script>
+
+{% endblock %}

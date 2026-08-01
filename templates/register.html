@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Doctor Assistant | Register</title>
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- LEFT SIDE -->
+
+    <div class="left-panel">
+
+        <div class="overlay"></div>
+
+        <div class="left-content">
+
+            <!-- Logo -->
+
+            <div class="logo">
+
+                <div class="capsule-logo">
+
+                    <span class="blue"></span>
+
+                    <span class="white"></span>
+
+                </div>
+
+                <h2>AI Doctor Assistant</h2>
+
+            </div>
+
+            <!-- Hero -->
+
+            <div class="hero-content">
+
+                <h1>
+
+                    Smarter Healthcare
+
+                    <br>
+
+                    Powered by AI
+
+                </h1>
+
+                <p>
+
+                    Empowering doctors with intelligent disease prediction,
+                    AI-assisted diagnosis and modern healthcare technology.
+
+                </p>
+
+            </div>
+
+            <!-- Features -->
+
+            <div class="feature-box">
+
+                <div>
+
+                    <i class="fa-solid fa-brain"></i>
+
+                    AI Prediction
+
+                </div>
+
+                <div>
+
+                    <i class="fa-solid fa-heart-pulse"></i>
+
+                    Fast Diagnosis
+
+                </div>
+
+                <div>
+
+                    <i class="fa-solid fa-shield-heart"></i>
+
+                    Secure Records
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+
+    <div class="right-panel">
+
+        <div class="login-card">
+
+            <div class="card-header">
+
+                <h2>
+                    
+                    Create Account
+
+                </h2>
+
+                <p>Register to continue</p>
+
+            </div>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category,message in messages %}
+
+            <div class="alert alert-{{category}}">
+                {{message}}
+            </div>
+
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <form method="POST">
+
+<div class="mb-3">
+
+<label>Full Name</label>
+
+<input
+type="text"
+name="fullname"
+class="form-control"
+required>
+
+</div>
+
+<div class="mb-3">
+
+<label>Email</label>
+
+<input
+type="email"
+name="email"
+class="form-control"
+required>
+
+</div>
+
+<div class="mb-3">
+
+<label>Password</label>
+
+<input
+type="password"
+name="password"
+class="form-control"
+required>
+
+</div>
+
+<div class="mb-4">
+
+<label>Confirm Password</label>
+
+<input
+type="password"
+name="confirm_password"
+class="form-control"
+required>
+
+</div>
+
+<button
+class="btn btn-primary w-100">
+
+Register
+
+</button>
+
+</form>
+
+<p class="text-center mt-4">
+
+Already Registered?
+
+<a href="/">
+
+Login Here
+
+</a>
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
